@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-
-const Login = () => {
+const Register = () => {
+  const [nameFocus, setNameFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
 
@@ -22,7 +22,26 @@ const Login = () => {
       <div className="flex-shrink-0 w-2/5 p-8 flex items-center relative">
         <div className="flex flex-col items-center w-full">
           <img src="/logo_Curhatin.svg" alt="Logo" className="mb-4 w-2/5" />
-          <h2 className="text-gray-500 text-xl mt-4 mb-4 font-bold">Masuk Akun</h2>
+          <h2 className="text-gray-500 text-xl mt-4 mb-4 font-bold">Daftar Akun</h2>
+
+          {/* Nama Lengkap */}
+          <div className={`input-container ${nameFocus ? "focused" : ""}`}>
+            <div className="flex items-center">
+              <span className="icon">
+                <i className="fas fa-user-alt"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="Nama Lengkap"
+                onFocus={() => setNameFocus(true)}
+                onBlur={() => setNameFocus(false)}
+                style={{ outline: "none" }}
+                className={`input-field ${
+                  nameFocus ? "orange-placeholder" : ""
+                }`}
+              />
+            </div>
+          </div>
 
           {/* Email */}
           <div className={`input-container ${emailFocus ? "focused" : ""}`}>
@@ -65,19 +84,19 @@ const Login = () => {
           {/* Tombol Daftar */}
           <button className="register-button w-48">
             <span className="icon">
-              <i className="fas fa-sign-in-alt"></i>
+              <i className="fas fa-user-plus"></i>
             </span>
-            Masuk
+            Daftar
           </button>
 
           {/* Sudah Punya Akun */}
           <div className="mt-4 text-base">
-            Belum punya akun? <Link to="/register" style={{ color: '#E38B29' }} className="font-bold">Daftar</Link>
+            Sudah punya akun? <Link to="/" style={{ color: '#E38B29' }} className="font-bold">Masuk</Link>
           </div>
 
            {/* Tombol Kembali ke Beranda */}
            <div className="mt-1">
-            <a href="" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</a>
+            <a href="/login.jsx" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</a>
           </div>
 
           {/* By Curhat-in Company */}
@@ -94,4 +113,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
