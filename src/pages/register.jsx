@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "../index.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -11,7 +10,7 @@ const Register = () => {
     <div className="flex h-screen overflow-hidden">
       {/* Bagian Kiri */}
       <div className={`flex-shrink-0 w-3/5 register-container`}>
-        <img  
+        <img
           src="/loginPage.svg"
           alt="Left Image"
           className="object-cover object-center w-full h-full"
@@ -36,9 +35,8 @@ const Register = () => {
                 onFocus={() => setNameFocus(true)}
                 onBlur={() => setNameFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${
-                  nameFocus ? "orange-placeholder" : ""
-                }`}
+                className={`input-field ${nameFocus ? "orange-placeholder" : ""
+                  }`}
               />
             </div>
           </div>
@@ -55,9 +53,8 @@ const Register = () => {
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${
-                  emailFocus ? "orange-placeholder" : ""
-                }`}
+                className={`input-field ${emailFocus ? "orange-placeholder" : ""
+                  }`}
               />
             </div>
           </div>
@@ -74,9 +71,8 @@ const Register = () => {
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${
-                  passwordFocus ? "orange-placeholder" : ""
-                }`}
+                className={`input-field ${passwordFocus ? "orange-placeholder" : ""
+                  }`}
               />
             </div>
           </div>
@@ -94,8 +90,8 @@ const Register = () => {
             Sudah punya akun? <Link to="/" style={{ color: '#E38B29' }} className="font-bold">Masuk</Link>
           </div>
 
-           {/* Tombol Kembali ke Beranda */}
-           <div className="mt-1">
+          {/* Tombol Kembali ke Beranda */}
+          <div className="mt-1">
             <a href="/login.jsx" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</a>
           </div>
 
@@ -104,10 +100,10 @@ const Register = () => {
             By Curhat-in Company
           </div>
         </div>
-        <img src="/ellipse.svg" alt="buble" className="absolute top-0 -right-2 w-[150px] rotate-180"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[50px] w-[150px]"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[220px] w-[40px]"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-[230px] -right-10 w-[150px] -rotate-90"/>
+        <img src="/ellipse.svg" alt="buble" className="absolute top-0 -right-2 w-[150px] rotate-180" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[50px] w-[150px]" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[220px] w-[40px]" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-[230px] -right-10 w-[150px] -rotate-90" />
       </div>
     </div>
   );
