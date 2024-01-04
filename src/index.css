@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Register.css */
+.input-container {
+  width: 63%;
+  height: 55px;
+  border: 2px solid #666666;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  transition: all 0.3s;
+}
+.register-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background-color: #E38B29;
+  opacity: 0.2;
+  z-index: -1; /* Untuk memastikan pseudoelemen di belakang kontennya */
+}
+
+.input-container.focused {
+  border-color: #e38b29;
+}
+
+.input-container i {
+  margin-right: 12px;
+  margin-left: 10px;
+  color: #888; /* Warna ikon sebelum ditekan */
+  transition: color 0.3s; /* Efek transisi warna */
+}
+
+.orange-placeholder::placeholder {
+  color: #ffd8a9;
+}
+
+.input-container.focused i {
+  color: #e38b29; /* Warna ikon setelah ditekan */
+}
+
+.register-button {
+  background-color: #e38b29;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #ffa53d;
+  font-weight: bold;
+}
+
+.register-button .icon {
+  margin-right: 8px;
+}
