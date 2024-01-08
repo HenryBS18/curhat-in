@@ -1,10 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Login from './pages/login.jsx'
-import Register from './pages/register.jsx'
-import LoginReminder from './pages/login_reminder.jsx'
-import Edukasi from './pages/edukasi.jsx'
-import Home from './pages/home.jsx'
 import './index.css'
 
 import {
@@ -12,29 +7,32 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Login from './pages/Login';
+import Register from './pages/Register';
+import LoginReminder from './pages/LoginReminder';
+import Home from './pages/Home';
+import Education from './pages/Education';
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
   },
-
   {
     path: "/register",
     element: <Register />,
-  }, 
-
+  },
   {
     path: "/loginReminder",
     element: <LoginReminder />,
-  }, 
-
+  },
   {
     path: "/home",
     element: <Home />,
   },
   {
     path: "/edukasi",
-    element: <Edukasi />,
+    element: <Education />,
   }
 ]);
 
