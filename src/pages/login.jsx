@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import "../index.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
 
 const Login = () => {
   const [emailFocus, setEmailFocus] = useState(false);
@@ -11,7 +9,7 @@ const Login = () => {
     <div className="flex h-screen overflow-hidden">
       {/* Bagian Kiri */}
       <div className={`flex-shrink-0 w-3/5 register-container`}>
-        <img  
+        <img
           src="/loginPage.svg"
           alt="Left Image"
           className="object-cover object-center w-full h-full"
@@ -36,9 +34,8 @@ const Login = () => {
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${
-                  emailFocus ? "orange-placeholder" : ""
-                }`}
+                className={`input-field ${emailFocus ? "orange-placeholder" : ""
+                  }`}
               />
             </div>
           </div>
@@ -55,9 +52,8 @@ const Login = () => {
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${
-                  passwordFocus ? "orange-placeholder" : ""
-                }`}
+                className={`input-field ${passwordFocus ? "orange-placeholder" : ""
+                  }`}
               />
             </div>
           </div>
@@ -85,10 +81,10 @@ const Login = () => {
             By Curhat-in Company
           </div>
         </div>
-        <img src="/ellipse.svg" alt="buble" className="absolute top-0 -right-2 w-[150px] rotate-180"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[50px] w-[150px]"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[220px] w-[40px]"/>
-        <img src="/ellipse.svg" alt="buble" className="absolute bottom-[230px] -right-10 w-[150px] -rotate-90"/>
+        <img src="/ellipse.svg" alt="buble" className="absolute top-0 -right-2 w-[150px] rotate-180" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[50px] w-[150px]" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-0 left-[220px] w-[40px]" />
+        <img src="/ellipse.svg" alt="buble" className="absolute bottom-[230px] -right-10 w-[150px] -rotate-90" />
       </div>
     </div>
   );
