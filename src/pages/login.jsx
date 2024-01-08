@@ -71,9 +71,9 @@ const Login = () => {
             Belum punya akun? <Link to="/register" style={{ color: '#E38B29' }} className="font-bold">Daftar</Link>
           </div>
 
-          {/* Tombol Kembali ke Beranda */}
-          <div className="mt-1">
-            <a href="" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</a>
+           {/* Tombol Kembali ke Beranda */}
+           <div className="mt-1">
+            <Link to="/loginReminder" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</Link>
           </div>
 
           {/* By Curhat-in Company */}
