@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const Edukasi = () => {
+const Education = () => {
   return (
     <div className="bg-[#FFF0DE] h-screen w-full">
       {/* Navbar */}
@@ -26,7 +25,7 @@ const Edukasi = () => {
               <Link to="/layanan-konsultasi" className="text-gray-500">
                 Layanan Konsultasi
               </Link>
-              <Link to="/materi-edukasi" className="text-[#E38B29] font-bold
+              <Link to="/materi-Education" className="text-[#E38B29] font-bold
               ">
                 Materi Edukasi
               </Link>
@@ -52,4 +51,4 @@ const Edukasi = () => {
     </div>
   );
 };
-export default Edukasi;
+export default Education;
