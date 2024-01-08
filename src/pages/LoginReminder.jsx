@@ -17,7 +17,7 @@ const LoginReminder = () => {
 
             {/* Menu */}
             <div className="flex space-x-8">
-              <Link to="/" className="text-[#E38B29] font-bold">
+              <Link to="/" className="text-gray-500 font-bold">
                 Beranda
               </Link>
               <Link to="/chatbot" className="text-gray-500">
