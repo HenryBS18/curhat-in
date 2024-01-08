@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const Home = () => {
+const Edukasi = () => {
   return (
     <div className="bg-[#FFF0DE] h-screen w-full">
       {/* Navbar */}
@@ -17,7 +17,7 @@ const Home = () => {
 
             {/* Menu */}
             <div className="flex space-x-8">
-              <Link to="/" className="text-[#E38B29] font-bold">
+              <Link to="/" className="text-gray-500">
                 Beranda
               </Link>
               <Link to="/chatbot" className="text-gray-500">
@@ -26,7 +26,8 @@ const Home = () => {
               <Link to="/layanan-konsultasi" className="text-gray-500">
                 Layanan Konsultasi
               </Link>
-              <Link to="/edukasi" className="text-gray-500">
+              <Link to="/materi-edukasi" className="text-[#E38B29] font-bold
+              ">
                 Materi Edukasi
               </Link>
               <Link to="/quiz" className="text-gray-500">
@@ -51,4 +52,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default Edukasi;

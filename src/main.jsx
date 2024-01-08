@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Login from './pages/login.jsx'
 import Register from './pages/register.jsx'
 import LoginReminder from './pages/login_reminder.jsx'
+import Edukasi from './pages/edukasi.jsx'
 import Home from './pages/home.jsx'
 import './index.css'
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/edukasi",
+    element: <Edukasi />,
   }
 ]);
 
