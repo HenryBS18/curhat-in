@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Login from './pages/login.jsx'
 import Register from './pages/register.jsx'
+import LoginReminder from './pages/login_reminder.jsx'
 import './index.css'
 
 import {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  }, 
+
+  {
+    path: "/loginReminder",
+    element: <LoginReminder />,
   }
 ]);
 
