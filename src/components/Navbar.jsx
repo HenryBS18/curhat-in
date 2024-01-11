@@ -3,8 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ title }) => {
+  const location = useLocation();
+
   return (
     <nav className="border-b border-gray-300 p-4 mx-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -15,19 +18,19 @@ const Navbar = () => {
 
         {/* Menu */}
         <div className="flex space-x-8">
-          <Link to="/" className="text-[#E38B29] font-bold">
+          <Link to="/" className={location.pathname === "/" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Beranda
           </Link>
-          <Link to="/chatbot" className="text-gray-500">
+          <Link to="/chatbot" className={location.pathname === "/chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Chatbot
           </Link>
-          <Link to="/layanan-konsultasi" className="text-gray-500">
+          <Link to="/layanan-konsultasi" className={location.pathname === "/layanan-konsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Layanan Konsultasi
           </Link>
-          <Link to="/materi-edukasi" className="text-gray-500">
+          <Link to="/education" className={location.pathname === "/education" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Materi Edukasi
           </Link>
-          <Link to="/quiz" className="text-gray-500">
+          <Link to="/quiz" className={location.pathname === "/quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Quiz
           </Link>
         </div>

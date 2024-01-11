@@ -4,9 +4,10 @@ import Navbar from "../components/Navbar";
 const LoginReminder = () => {
   return (
     <div className="bg-[#FFF0DE] h-screen w-full">
-      {/* Navbar */}
 
+      {/* Navbar */}
       <Navbar />
+      
       {/* Konten halaman */}
       <div className="flex p-8 justify-center items-center text-center h-full">
         <div className="">
