@@ -18,7 +18,7 @@ const Navbar = ({ title }) => {
 
         {/* Menu */}
         <div className="flex space-x-8">
-          <Link to="/" className={location.pathname === "/" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+          <Link to="/home" className={location.pathname === "/home" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Beranda
           </Link>
           <Link to="/chatbot" className={location.pathname === "/chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
