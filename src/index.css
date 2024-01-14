@@ -63,3 +63,31 @@
 .register-button .icon {
   margin-right: 8px;
 }
+
+/* Body Scrollbar Custom Styles */
+body::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #E38B29; /* Set the color of the thumb (the draggable part) */
+  border-radius: 4px; /* Set the border-radius for rounded corners */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #FFD8A9; /* Set the color of the track (the non-draggable part) */
+}
+
+/* Textarea Scrollbar Custom Styles */
+textarea::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #E38B29; /* Set the color of the thumb (the draggable part) */
+  border-radius: 4px; /* Set the border-radius for rounded corners */
+}
+
+textarea::-webkit-scrollbar-track {
+  background-color: #FFD8A9; /* Set the color of the track (the non-draggable part) */
+}
