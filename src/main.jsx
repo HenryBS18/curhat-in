@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import LoginReminder from './pages/LoginReminder';
 import Home from './pages/Home';
 import Education from './pages/Education';
+import Chatbot from './pages/Chatbot';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/education",
     element: <Education />,
-  }
+  },
+  {
+    path: "/chatbot",
+    element: <Chatbot />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
