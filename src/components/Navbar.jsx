@@ -1,15 +1,13 @@
-// Navbar.jsx
-import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="border-b border-gray-300 p-4 mx-4">
+    <nav className="border-b border-gray-300 py-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/">
