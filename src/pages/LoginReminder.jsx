@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 
 const LoginReminder = () => {
@@ -7,7 +6,7 @@ const LoginReminder = () => {
 
       {/* Navbar */}
       <Navbar />
-      
+
       {/* Konten halaman */}
       <div className="flex p-8 justify-center items-center text-center h-full">
         <div className="">
