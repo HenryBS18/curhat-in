@@ -27,10 +27,10 @@ const LoginReminder = () => {
           </p>
 
           <div className="flex space-x-4 justify-center mt-8">
-            <button className="border-2 border-[#E38B29] text-[#E38B29] hover:bg-[#E38B29] hover:text-white px-4 py-2 rounded-3xl w-40">
+            <button className="border-2 border-[#E38B29] text-[#E38B29] hover:bg-[#E38B29] hover:text-white px-4 py-2 rounded-2xl w-40">
               Daftar Akun
             </button>
-            <button className="border-2 border-[#E38B29] text-[#E38B29] hover:bg-[#E38B29] hover:text-white px-4 py-2 rounded-3xl w-40">
+            <button className="border-2 border-[#E38B29] text-[#E38B29] hover:bg-[#E38B29] hover:text-white px-4 py-2 rounded-2xl w-40">
               Masuk Akun
             </button>
           </div>
