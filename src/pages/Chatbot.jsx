@@ -43,7 +43,7 @@ const Chatbot = () => {
         <div className="mt-5 flex justify-between items-center">
           <h1 className="text-[36px] font-bold">Chatbot</h1>
 
-          <button className="w-[186px] h-[56px] border-2 border-[#E38B29] rounded-2xl text-[#E38B29] font-semibold" onClick={() => setIsGuideShow(true)}>Panduan Obrolan</button>
+          <button className="w-[186px] h-[56px] border-2 border-[#E38B29] rounded-2xl text-[#E38B29] font-semibold hover:bg-[#E38B29] hover:text-white" onClick={() => setIsGuideShow(true)}>Panduan Obrolan</button>
         </div>
       </div>
 
