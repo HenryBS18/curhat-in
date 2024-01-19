@@ -1,12 +1,4 @@
 import { useState } from "react"
-import { OpenAI } from "openai"
-
-const API_KEY = "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"
-
-const openai = new OpenAI({
-  apiKey: API_KEY,
-  dangerouslyAllowBrowser: true,
-})
 
 const InputMessage = () => {
   const [input, setInput] = useState('');
@@ -17,14 +9,6 @@ const InputMessage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: "user", content: input }],
-      model: "gpt-3.5-turbo",
-      max_tokens: 100,
-    })
-
-    console.log(chatCompletion.choices[0].message.content)
   }
 
   return (
