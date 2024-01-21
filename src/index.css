@@ -88,4 +88,17 @@ textarea::-webkit-scrollbar-track {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
 }
+ol {
+  margin-left: 20px;
+  list-style-type: auto;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  white-space: normal;
+}
+
+body {
+  scroll-behavior: smooth;
 }
