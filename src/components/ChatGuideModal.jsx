@@ -49,17 +49,13 @@ const ChatGuideModal = ({ setIsGuideShow }) => {
           <div className='w-full mt-3'>
             {
               guides.map((guides, i) => (
-                <>
-                  <div className='flex justify-between' key={i}>
-                    <div className='w-[18px] h-[18px] bg-[#FFD8A9] rounded-full mt-1' />
+                <div className='flex justify-between mb-2' key={i}>
+                  <div className='w-[18px] h-[18px] bg-[#FFD8A9] rounded-full mt-1' />
 
-                    <p className='w-[calc(100%-30px)] text-white text-xl'>
-                      {guides.message}
-                    </p>
-                  </div>
-
-                  <div className='w-full h-2' />
-                </>
+                  <p className='w-[calc(100%-30px)] text-white text-xl'>
+                    {guides.message}
+                  </p>
+                </div>
               ))
             }
           </div>
