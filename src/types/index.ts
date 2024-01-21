@@ -1,4 +1,4 @@
-type ChatbotStore = {
+export type ChatbotStore = {
   chats: Chat[]
   addNewChat: (newChat: Chat) => void
   loading: boolean
@@ -7,17 +7,17 @@ type ChatbotStore = {
   setError: (error: boolean) => void
 }
 
-type Chat = {
+export type Chat = {
   message: string
   from: "user" | "model"
 }
 
-type ChatHistory = {
+export type ChatHistory = {
   role: string
   parts: string
 }
 
-type CreatePromptProps = {
+export type CreatePromptProps = {
   prompt: string
   chats: Chat[]
 }
