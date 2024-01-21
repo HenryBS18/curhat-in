@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { Chat, ChatbotStore } from "../types"
 
 const initialChats: Chat[] = [
   {

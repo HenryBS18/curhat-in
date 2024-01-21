@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import { ChatHistory, CreatePromptProps } from "../../types"
 
 export const createPrompt = async ({ prompt, chats }: CreatePromptProps): Promise<string> => {
   const genAI = new GoogleGenerativeAI("AIzaSyB3ND7e-1s4ueD3L0otCdQB1JHx_oXOAKw")
