@@ -7,10 +7,10 @@ export const createPrompt = async ({ prompt, chats }: CreatePromptProps): Promis
 
   const history: ChatHistory[] = []
 
-  for await (const c of chats) {
+  for await (const chat of chats) {
     history.push({
-      role: c.from,
-      parts: c.message
+      role: chat.from,
+      parts: chat.message
     })
   }
 
