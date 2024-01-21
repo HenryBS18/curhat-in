@@ -91,3 +91,18 @@ textarea::-webkit-scrollbar-thumb {
 textarea::-webkit-scrollbar-track {
   background-color: #FFD8A9; /* Set the color of the track (the non-draggable part) */
 }
+
+ol {
+  margin-left: 20px;
+  list-style-type: auto;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  white-space: normal;
+}
+
+body {
+  scroll-behavior: smooth;
+}
