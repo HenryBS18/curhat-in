@@ -13,6 +13,7 @@ import LoginReminder from './pages/LoginReminder';
 import Home from './pages/Home';
 import Education from './pages/Education';
 import Chatbot from './pages/Chatbot';
+import Konsultasi from './pages/Konsultasi';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/chatbot",
     element: <Chatbot />
+  },
+  {
+    path: "/layanan-konsultasi",
+    element: <Konsultasi />
   },
 ]);
 
