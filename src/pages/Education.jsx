@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Education = () => {
   const educationData = [
@@ -49,7 +49,7 @@ const Education = () => {
 
   return (
     <div className="bg-[#FFF0DE] w-full flex items-center flex-col">
-      <div className="w-[90%] h-[775px]">
+      <div className="w-[90%] min-h-[775px]">
         {/* Navbar */}
         <Navbar />
         {/* Konten Materi Edukasi */}
@@ -57,7 +57,8 @@ const Education = () => {
           {/* Card Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
             {educationData.map((data) => (
-              <div
+              <Link
+              to={`/education/${data.id}`}
                 key={data.id}
                 className="bg-[#F1A661] p-4 rounded-2xl shadow-md w-[375px]"
               >
@@ -80,7 +81,7 @@ const Education = () => {
                   </p>
                   <p className="text-sm text-[#FFEAD1]">{data.date}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

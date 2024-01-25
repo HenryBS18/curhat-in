@@ -25,7 +25,7 @@ const Navbar = () => {
           <Link to="/layanan-konsultasi" className={location.pathname === "/layanan-konsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Layanan Konsultasi
           </Link>
-          <Link to="/education" className={location.pathname === "/education" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+          <Link to="/education" className={location.pathname.startsWith ("/education") ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Materi Edukasi
           </Link>
           <Link to="/quiz" className={location.pathname === "/quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
