@@ -1,12 +1,11 @@
-// Chatbubble.jsx
-
 import React from 'react';
 
-const Chatbubble = ({ doctorName, message }) => {
+const Chatbubble = ({ doctorName, message, doctorImage }) => {
   return (
     <div className="flex items-start gap-2.5 w-full">
       <img
         className="w-8 h-8 rounded-full"
+        src={doctorImage}
         alt={`${doctorName}'s image`}
       />
       <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-white bg-white rounded-e-xl rounded-es-xl dark:bg-white mx-[]">
