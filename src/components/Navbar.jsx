@@ -106,7 +106,7 @@ const Navbar = () => {
               onClick={handleProfileClick}
             />
             {showProfileBox && (
-              <div className="absolute bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
+              <div className="absolute z-20 bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
                 <div className="flex items-center mb-2">
                   {profilePicture ? (
                     <img src={profilePicture} alt="Profile" className="h-8 w-8 rounded-full mr-2" />
