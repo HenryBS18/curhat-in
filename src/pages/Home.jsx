@@ -108,7 +108,7 @@ const Home = () => {
               {/* Tombol Layanan Konsultasi */}
               <div className="relative z-10">
                 <Link to="/layanan-konsultasi">
-                  <button className="text-white bg-[#e38c29d9] border-[#e38c29d9] border-2 hover:bg-[#e38c29] hover:text-white px-6 py-2 mt-4 rounded-2xl mr-4">
+                  <button className="text-white bg-[#e38c29d9] border-[#e38c29d9] border-2 hover:bg-[#e38c29] hover:font-bold px-6 py-2 mt-4 rounded-2xl mr-4">
                     Layanan Konsultasi
                   </button>
                 </Link>

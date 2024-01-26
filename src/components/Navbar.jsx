@@ -36,7 +36,7 @@ const Navbar = () => {
         {/* Tombol Masuk */}
         <Link
           to="/login"
-          className="bg-[#E38B29] text-white px-4 py-2 rounded-3xl w-32 flex items-center justify-center"
+          className="bg-[#e38c29d9] border-[#e38c29d9] border-2 hover:bg-[#e38c29] text-white hover:font-bold px-4 py-2 rounded-3xl w-32 flex items-center justify-center"
         >
           Masuk
           <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
