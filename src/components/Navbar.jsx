@@ -10,6 +10,7 @@ const Navbar = () => {
   const [showProfileBox, setShowProfileBox] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
 
   useEffect(() => {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
@@ -17,8 +18,11 @@ const Navbar = () => {
 
     const storedUsername = localStorage.getItem("username") || "";
     const storedEmail = localStorage.getItem("email") || "";
+    const storedProfilePicture = localStorage.getItem("profilePicture") || "";
+
     setUsername(storedUsername);
     setEmail(storedEmail);
+    setProfilePicture(storedProfilePicture);
   }, []);
 
   const handleProfileClick = () => {
@@ -32,6 +36,7 @@ const Navbar = () => {
     // Clear localStorage
     localStorage.removeItem("username");
     localStorage.removeItem("email");
+    localStorage.removeItem("profilePicture");
 
     // Update isLoggedIn state
     setLoggedIn(false);
@@ -45,7 +50,25 @@ const Navbar = () => {
         </Link>
 
         <div className="flex space-x-8">
-          {/* ... (Your existing menu items) */}
+         {/* Menu */}
+         <div className="flex space-x-8">
+          <Link to="/home" className={location.pathname === "/home" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            Beranda
+          </Link>
+          <Link to="/chatbot" className={location.pathname === "/chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            Chatbot
+          </Link>
+          <Link to="/layanan-konsultasi" className={location.pathname === "/layanan-konsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            Layanan Konsultasi
+          </Link>
+          <Link to="/education" className={location.pathname.startsWith ("/education") ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            Materi Edukasi
+          </Link>
+          <Link to="/quiz" className={location.pathname === "/quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            Quiz
+          </Link>
+        </div>
+
         </div>
 
         {isLoggedIn ? (
@@ -55,12 +78,25 @@ const Navbar = () => {
               className="text-[#E38B29] font-bold cursor-pointer"
               onClick={handleProfileClick}
             />
-            {showProfileBox && (
-              <div className="absolute bg-white p-4 rounded border border-gray-300 mt-2 left-[-140px]">
-                <p>Username: {username}</p>
-                <p>Email: {email}</p>
+            {showProfileBox && (  
+              <div className="absolute bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
+                <div className="flex items-center mb-2">
+                  {profilePicture ? (
+                    <img
+                      src={profilePicture}
+                      alt="Profile"
+                      className="h-8 w-8 rounded-full mr-2"
+                    />
+                  ) : (
+                    <FontAwesomeIcon icon={faUser} className="text-white h-8 w-8 rounded-full mr-2" />
+                  )}
+                  <div>
+                    <p>Username: {username}</p>
+                    <p>Email: {email}</p>
+                  </div>
+                </div>
                 <button
-                  className="text-red-500 cursor-pointer underline"
+                  className="bg-white text-[#E38B29] px-2 py-1 rounded cursor-pointer"
                   onClick={handleLogout}
                 >
                   Logout
