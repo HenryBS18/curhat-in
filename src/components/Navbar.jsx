@@ -82,7 +82,7 @@ const Navbar = () => {
               {isLoggedIn ? (
                 "MateriEdukasi"
               ) : (
-                <span onClick={() => (window.location.href = "/loginreminder")}>Login Reminder</span>
+                <span onClick={() => (window.location.href = "/loginreminder")}>Materi Edukasi</span>
               )}
             </Link>
             <Link
