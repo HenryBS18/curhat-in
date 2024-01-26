@@ -17,7 +17,7 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/register", {
+      const response = await axios.post("https://wt81rphl-3000.asse.devtunnels.ms/register", {
         email,
         password,
         username: name,
