@@ -1,10 +1,41 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [nameFocus, setNameFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
+  const navigate = useNavigate();
+
+
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post("http://localhost:3000/register", {
+        email,
+        password,
+        username: name,
+      });
+
+      // Assuming the server returns a token upon successful registration
+      const token = response.data.token;
+
+      // Handle the token as needed (e.g., save it to localStorage, redirect, etc.)
+      console.log("Registration successful. Token:", token);
+   
+      // Redirect to the login page
+   navigate("/");
+  } catch (error) {
+    // Handle registration failure (e.g., display an error message)
+    console.error("Registration error:", error.message);
+  }
+};
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -32,11 +63,12 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="Nama Lengkap"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 onFocus={() => setNameFocus(true)}
                 onBlur={() => setNameFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${nameFocus ? "orange-placeholder" : ""
-                  }`}
+                className={`input-field ${nameFocus ? "orange-placeholder" : ""}`}
               />
             </div>
           </div>
@@ -50,11 +82,12 @@ const Register = () => {
               <input
                 type="email"
                 placeholder="email@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${emailFocus ? "orange-placeholder" : ""
-                  }`}
+                className={`input-field ${emailFocus ? "orange-placeholder" : ""}`}
               />
             </div>
           </div>
@@ -68,17 +101,18 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="*********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${passwordFocus ? "orange-placeholder" : ""
-                  }`}
+                className={`input-field ${passwordFocus ? "orange-placeholder" : ""}`}
               />
             </div>
           </div>
 
           {/* Tombol Daftar */}
-          <button className="register-button w-48">
+          <button onClick={handleRegister} className="register-button w-48">
             <span className="icon">
               <i className="fas fa-user-plus"></i>
             </span>
@@ -96,7 +130,7 @@ const Register = () => {
           </div>
 
           {/* By Curhat-in Company */}
-          <div className="text-lg font-semibold absolute bottom-8" style={{ color: '#B8B8B8' }} >
+          <div className="text-lg font-semibold absolute bottom-8" style={{ color: '#B8B8B8' }}>
             By Curhat-in Company
           </div>
         </div>
