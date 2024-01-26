@@ -17,6 +17,7 @@ import Quiz from './pages/Quiz';
 import QuizDetail from './pages/QuizDetail';
 import QuizFinished from './pages/QuizFinished';
 import EducationDetail from './components/EducationDetail';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/education/:id',
-    element: <EducationDetail/>,
+    element: <EducationDetail />,
   },
   {
     path: '/layanan-konsultasi',
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/quiz/:id/score",
     element: <QuizFinished />
+  },
+  {
+    path: "*",
+    element: <NotFound />
   }
 ]);
 
