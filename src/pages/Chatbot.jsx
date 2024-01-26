@@ -1,39 +1,21 @@
-import { useState } from "react";
-import BotMessage from "../components/BotMessage";
-import InputMessage from "../components/InputMessage";
+import { useEffect, useRef, useState } from "react";
+import { useChatbotStore } from "../store/useChatbotStore";
 import Navbar from "../components/Navbar";
-import UserMessage from "../components/UserMessage";
+import InputMessage from "../components/InputMessage";
 import ChatGuideModal from "../components/ChatGuideModal";
+import UserMessage from "../components/UserMessage";
+import BotMessage from "../components/BotMessage";
+import LoadingText from "../components/LoadingText";
+import NoChatText from "../components/NoChatText";
 
 const Chatbot = () => {
-  const [isGuideShow, setIsGuideShow] = useState(false);
+  const [isGuideShow, setIsGuideShow] = useState(false)
+  const { chats, loading } = useChatbotStore((state) => state)
+  const bottom = useRef(null)
 
-  const messages = [
-    {
-      message: "Saya sering merasa cemas dan stres akhir-akhir ini. Saya merasa sulit untuk tidur dan fokus pada pekerjaan saya.",
-      from: "user"
-    },
-    {
-      message: "Saya mengerti betapa sulitnya merasa cemas dan stres. Apakah ada hal khusus yang memicu perasaan cemas dan stres Anda?",
-      from: "bot"
-    },
-    {
-      message: "Saya merasa tertekan dengan pekerjaan saya dan juga hubungan dengan keluarga dan teman-teman saya.",
-      from: "user"
-    },
-    {
-      message: "Saya memahami bagaimana itu bisa sangat sulit. Ada beberapa strategi yang dapat membantu mengurangi perasaan cemas dan stres, seperti latihan pernapasan, meditasi, dan olahraga. Apakah Anda pernah mencoba salah satu dari ini sebelumnya?",
-      from: "bot"
-    },
-    {
-      message: "Saya belum mencobanya. Apakah Anda punya tips atau saran lain untuk membantu saya mengatasi perasaan ini?",
-      from: "user"
-    },
-    {
-      message: "Selain strategi yang telah saya sebutkan, juga sangat penting untuk menjaga kesehatan fisik dan mental Anda dengan makan sehat, tidur cukup, dan memperhatikan kebutuhan emosional Anda. Jika perasaan cemas dan stres berlanjut atau semakin parah, penting untuk mencari bantuan dari ahli kesehatan mental atau dokter. Apakah Anda membutuhkan informasi tambahan tentang kesehatan mental atau sumber daya bantuan yang tersedia di daerah Anda?",
-      from: "bot"
-    },
-  ];
+  useEffect(() => {
+    bottom.current.scrollIntoView({ behavior: 'smooth' })
+  }, [chats])
 
   return (
     <div className="w-full min-h-screen bg-[#FFF0DE] flex flex-col items-center relative">
@@ -43,28 +25,40 @@ const Chatbot = () => {
         <div className="mt-5 flex justify-between items-center">
           <h1 className="text-[36px] font-bold">Chatbot</h1>
 
-          <button className="w-[186px] h-[56px] border-2 border-[#E38B29] rounded-2xl text-[#E38B29] font-semibold" onClick={() => setIsGuideShow(true)}>Panduan Obrolan</button>
+          <button
+            className="w-[186px] h-[56px] border-2 border-[#E38B29] rounded-2xl text-[#E38B29] font-semibold hover:bg-[#E38B29] hover:text-white"
+            onClick={() => setIsGuideShow(true)}>
+            Panduan Obrolan
+          </button>
         </div>
+
+        {/* <div className="w-full h-[1px] bg-black mt-3 opacity-30"></div> */}
       </div>
 
-      <div className="w-full h-auto border mt-6">
+      <div className="w-full h-auto mt-6">
+        {chats.length === 2 && <NoChatText />}
+
         {
-          messages.map((message, i) => {
-            if (message.from === "user") {
-              return <UserMessage key={i} message={message.message} />
+          chats.map((chat, i) => {
+            if (i === 0 || i === 1) return null
+
+            if (chat.from === "user") {
+              return <UserMessage key={i} message={chat.message} />
             }
-            return <BotMessage key={i} message={message.message} />
+            return <BotMessage key={i} message={chat.message} />
           })
         }
+
+        {loading && <LoadingText />}
+
+        <div ref={bottom} />
       </div>
 
       <div className="w-full h-[120px]" />
 
       <InputMessage />
 
-      {
-        isGuideShow && <ChatGuideModal setIsGuideShow={setIsGuideShow} />
-      }
+      {isGuideShow && <ChatGuideModal setIsGuideShow={setIsGuideShow} />}
     </div>
   )
 }

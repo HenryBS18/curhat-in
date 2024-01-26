@@ -6,7 +6,7 @@ const UserMessage = ({ message }) => {
           <img src="/assets/icons/user-icon.svg" alt="user" width={24} height={24} />
         </div>
 
-        <p className="w-[94%] text-lg font-semibold">{message}</p>
+        <p className="w-[94%] 2xl:w-[96%] text-lg font-semibold whitespace-pre-line">{message}</p>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Education = () => {
   const educationData = [
@@ -48,38 +48,42 @@ const Education = () => {
   ];
 
   return (
-    <div className="bg-[#FFF0DE] h-screen w-full overflow-y-hidden">
-      {/* Navbar */}
-      <Navbar title="Materi Edukasi" />
+    <div className="bg-[#FFF0DE] w-full flex items-center flex-col">
+      <div className="w-[90%] min-h-[775px]">
+        {/* Navbar */}
+        <Navbar />
+        {/* Konten Materi Edukasi */}
+        <div className="container mx-auto p-10 flex justify-center">
+          {/* Card Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+            {educationData.map((data) => (
+              <Link
+              to={`/education/${data.id}`}
+                key={data.id}
+                className="bg-[#F1A661] p-4 rounded-2xl shadow-md w-[375px]"
+              >
+                {/* Gambar */}
+                <img
+                  src={data.image}
+                  alt={data.title}
+                  className="w-full h-40 object-cover mb-4 rounded-2xl"
+                />
 
-      {/* Konten Materi Edukasi */}
-      <div className="container mx-auto p-10 flex justify-center">
-        {/* Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
-          {educationData.map((data) => (
-            <div
-              key={data.id}
-              className="bg-[#F1A661] p-4 rounded-2xl shadow-md w-[375px]"
-            >
-              {/* Gambar */}
-              <img
-                src={data.image}
-                alt={data.title}
-                className="w-full h-40 object-cover mb-4 rounded-2xl"
-              />
+                {/* Judul */}
+                <h3 className="text-base font-semibold mb-7 text-white text-ellipsis">
+                  {data.title}
+                </h3>
 
-              {/* Judul */}
-              <h3 className="text-base font-semibold mb-7 text-white text-ellipsis">
-                {data.title}
-              </h3>
-
-              {/* Nama Pengarang dan Tanggal Upload */}
-              <div className="flex justify-between items-center">
-                <p className="text-sm text-[#555555] font-semibold">{data.author}</p>
-                <p className="text-sm text-[#FFEAD1]">{data.date}</p>
-              </div>
-            </div>
-          ))}
+                {/* Nama Pengarang dan Tanggal Upload */}
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-[#555555] font-semibold">
+                    {data.author}
+                  </p>
+                  <p className="text-sm text-[#FFEAD1]">{data.date}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
