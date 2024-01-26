@@ -50,25 +50,52 @@ const Navbar = () => {
         </Link>
 
         <div className="flex space-x-8">
-         {/* Menu */}
-         <div className="flex space-x-8">
+          {/* Menu */}
+          <div className="flex space-x-8">
           <Link to="/home" className={location.pathname === "/home" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
             Beranda
           </Link>
-          <Link to="/chatbot" className={location.pathname === "/chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
-            Chatbot
-          </Link>
-          <Link to="/layanan-konsultasi" className={location.pathname === "/layanan-konsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
-            Layanan Konsultasi
-          </Link>
-          <Link to="/education" className={location.pathname.startsWith ("/education") ? "text-[#E38B29] font-bold" : "text-gray-500"}>
-            Materi Edukasi
-          </Link>
-          <Link to="/quiz" className={location.pathname === "/quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
-            Quiz
-          </Link>
-        </div>
-
+            <Link
+              to="/Chatbot"
+              className={location.pathname === "/Chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}
+            >
+              {isLoggedIn ? (
+                "Chatbot"
+              ) : (
+                <span onClick={() => (window.location.href = "/loginreminder")}>Chatbot</span>
+              )}
+            </Link>
+            <Link
+              to="/Layanan-konsultasi"
+              className={location.pathname === "/layanankonsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}
+            >
+              {isLoggedIn ? (
+                "LayananKonsultasi"
+              ) : (
+                <span onClick={() => (window.location.href = "/loginreminder")}>Layanan Konsultasi</span>
+              )}
+            </Link>
+            <Link
+              to="/education"
+              className={location.pathname === "/materiedukasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}
+            >
+              {isLoggedIn ? (
+                "MateriEdukasi"
+              ) : (
+                <span onClick={() => (window.location.href = "/loginreminder")}>Login Reminder</span>
+              )}
+            </Link>
+            <Link
+              to="/Quiz"
+              className={location.pathname === "/Quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}
+            >
+              {isLoggedIn ? (
+                "Quiz"
+              ) : (
+                <span onClick={() => (window.location.href = "/loginreminder")}>Quiz</span>
+              )}
+            </Link>
+          </div>
         </div>
 
         {isLoggedIn ? (
@@ -78,15 +105,11 @@ const Navbar = () => {
               className="text-[#E38B29] font-bold cursor-pointer"
               onClick={handleProfileClick}
             />
-            {showProfileBox && (  
+            {showProfileBox && (
               <div className="absolute bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
                 <div className="flex items-center mb-2">
                   {profilePicture ? (
-                    <img
-                      src={profilePicture}
-                      alt="Profile"
-                      className="h-8 w-8 rounded-full mr-2"
-                    />
+                    <img src={profilePicture} alt="Profile" className="h-8 w-8 rounded-full mr-2" />
                   ) : (
                     <FontAwesomeIcon icon={faUser} className="text-white h-8 w-8 rounded-full mr-2" />
                   )}
