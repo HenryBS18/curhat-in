@@ -1,9 +1,47 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("https://wt81rphl-3000.asse.devtunnels.ms/login", {
+        email,
+        password,
+      });
+  
+      const { token, username, email: userEmail } = response.data;
+  
+      // Save the token as a cookie
+      document.cookie = `token=${token}; path=/;`;
+  
+      // Save username and email to local storage
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', userEmail);
+  
+      // Redirect to the home page
+      navigate("/home");
+    } catch (error) {
+      console.error("Login error:", error.message);
+    }
+  };
+  
+  useEffect(() => {
+    // Check if a token is already present in cookies
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    if (token) {
+      // If a token is present, the user is already logged in, redirect to home
+      navigate("/home");
+    }
+  }, [navigate]);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -31,11 +69,12 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="email@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${emailFocus ? "orange-placeholder" : ""
-                  }`}
+                className={`input-field ${emailFocus ? "orange-placeholder" : ""}`}
               />
             </div>
           </div>
@@ -49,17 +88,18 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="*********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
                 style={{ outline: "none" }}
-                className={`input-field ${passwordFocus ? "orange-placeholder" : ""
-                  }`}
+                className={`input-field ${passwordFocus ? "orange-placeholder" : ""}`}
               />
             </div>
           </div>
 
           {/* Tombol Daftar */}
-          <button className="register-button w-48">
+          <button onClick={handleLogin} className="register-button w-48">
             <span className="icon">
               <i className="fas fa-sign-in-alt"></i>
             </span>

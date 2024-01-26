@@ -13,7 +13,11 @@ import Home from './pages/Home';
 import Education from './pages/Education';
 import Chatbot from './pages/Chatbot';
 import Konsultasi from './pages/Konsultasi';
+import Quiz from './pages/Quiz';
+import QuizDetail from './pages/QuizDetail';
+import QuizFinished from './pages/QuizFinished';
 import EducationDetail from './components/EducationDetail';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -42,12 +46,28 @@ const router = createBrowserRouter([
   },
   {
     path: '/education/:id',
-    element: <EducationDetail/>,
+    element: <EducationDetail />,
   },
   {
     path: '/layanan-konsultasi',
     element: <Konsultasi />,
   },
+  {
+    path: "/quiz",
+    element: <Quiz />
+  },
+  {
+    path: "/quiz/:id",
+    element: <QuizDetail />
+  },
+  {
+    path: "/quiz/:id/score",
+    element: <QuizFinished />
+  },
+  {
+    path: "*",
+    element: <NotFound />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

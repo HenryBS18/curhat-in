@@ -110,8 +110,9 @@ const Konsultasi = () => {
                       <Chatbubble
                         doctorName={selectedDoctor.name}
                         message={message}
-                      // ... other props as needed
+                        doctorImage={selectedDoctor.image}
                       />
+
                     </div>
                   ))}
                 </div>
