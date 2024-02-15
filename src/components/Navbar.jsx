@@ -116,7 +116,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link
-            to="/login"
+            to="/"
             className="bg-[#E38B29] text-white px-4 py-2 rounded-3xl w-32 flex items-center justify-center"
           >
             Masuk
