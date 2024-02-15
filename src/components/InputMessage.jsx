@@ -38,7 +38,6 @@ const InputMessage = () => {
     } catch (error) {
       setLoading(false)
       setError(true)
-      console.log('error');
     } finally {
       setLoading(false)
       setInput('')

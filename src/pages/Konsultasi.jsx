@@ -1,5 +1,3 @@
-// Konsultasi.jsx
-
 import { useEffect, useState } from 'react';
 import { authentication } from '../services/auth';
 
@@ -30,8 +28,6 @@ const Konsultasi = () => {
   };
 
   const handleSelectDoctor = (doctor) => {
-    console.log('Selected Doctor:', doctor);
-
     const isDoctorChosen = chosenDoctors.some((chosenDoctor) => chosenDoctor.id === doctor.id);
 
     if (!isDoctorChosen) {

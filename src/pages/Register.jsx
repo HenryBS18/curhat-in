@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
@@ -14,17 +13,11 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post("https://wt81rphl-3000.asse.devtunnels.ms/register", {
+      await axios.post("https://wt81rphl-3000.asse.devtunnels.ms/register", {
         email,
         password,
         username: name,
       });
-
-      // Assuming the server returns a token upon successful registration
-      const token = response.data.token;
-
-      // Handle the token as needed (e.g., save it to localStorage, redirect, etc.)
-      console.log("Registration successful. Token:", token);
 
       // Redirect to the login page
       navigate("/");

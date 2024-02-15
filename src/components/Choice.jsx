@@ -10,7 +10,6 @@ const Choice = ({ choice, id, questionNumber, choices }) => {
   const handleAnswer = (answer) => {
     setChosenAnswer(answer)
     setTotalTrue()
-    console.log('total: ', totalTrue);
   }
 
   const handleBorderColor = () => {

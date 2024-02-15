@@ -1,7 +1,6 @@
 import Markdown from 'react-markdown';
 
 const BotMessage = ({ message }) => {
-  console.log(message);
   return (
     <div className="w-full bg-[#FFF0DE] flex justify-center">
       <div className="w-[90%] flex justify-between py-3">
