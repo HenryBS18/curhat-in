@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+
+import { authentication } from "../services/auth";
 import { useQuizStore } from '../store/useQuizStore';
+
 import Choice from '../components/Choice';
 
 const QuizDetail = () => {
@@ -7,6 +11,10 @@ const QuizDetail = () => {
   const { id } = useParams()
   const queryParams = new URLSearchParams(location.search)
   const questionParam = queryParams.get('q')
+
+  useEffect(() => {
+    authentication()
+  }, [])
 
   return (
     <div className='w-full min-h-screen bg-[#FFF0DE] flex flex-col items-center'>

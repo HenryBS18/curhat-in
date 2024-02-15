@@ -1,12 +1,14 @@
 // Konsultasi.jsx
 
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { authentication } from '../services/auth';
+
 import Navbar from '../components/Navbar';
+import DoctorPopupMenu from '../components/DoctorPopupMenu';
+import ChatBubble from '../components/ChatBubble';
+
 import addButtonSvg from '../../public/assets/icons/addButton.svg';
 import searchiconSvg from '../../public/assets/icons/search-icon.svg';
-
-import DoctorPopupMenu from '../components/Doctorpopupmenu';
-import Chatbubble from '../components/Chatbubble';
 
 const Konsultasi = () => {
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
@@ -14,6 +16,10 @@ const Konsultasi = () => {
   const [chosenDoctors, setChosenDoctors] = useState([]);
   const [messageInput, setMessageInput] = useState('');
   const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    authentication()
+  }, [])
 
   const openPopupMenu = () => {
     setIsPopupMenuOpen(true);
@@ -107,7 +113,7 @@ const Konsultasi = () => {
                 <div className="max-h-[380px] w-full overflow-y-auto mb-4 chatbubble-container pl-5 mt-[-60px] ">
                   {messages.map((message, index) => (
                     <div key={index} className='w-full mb-4'>
-                      <Chatbubble
+                      <ChatBubble
                         doctorName={selectedDoctor.name}
                         message={message}
                         doctorImage={selectedDoctor.image}

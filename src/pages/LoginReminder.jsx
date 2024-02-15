@@ -2,10 +2,11 @@ import Navbar from "../components/Navbar";
 
 const LoginReminder = () => {
   return (
-    <div className="bg-[#FFF0DE] h-screen w-full">
-
-      {/* Navbar */}
-      <Navbar />
+    <div className="bg-[#FFF0DE] h-screen w-full flex flex-col items-center">
+      <div className="w-[90%]">
+        {/* Navbar */}
+        <Navbar />
+      </div>
 
       {/* Konten halaman */}
       <div className="flex p-8 justify-center items-center text-center h-full">

@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const [nameFocus, setNameFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
-  const navigate = useNavigate();
-
-
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
@@ -28,14 +25,14 @@ const Register = () => {
 
       // Handle the token as needed (e.g., save it to localStorage, redirect, etc.)
       console.log("Registration successful. Token:", token);
-   
+
       // Redirect to the login page
-   navigate("/");
-  } catch (error) {
-    // Handle registration failure (e.g., display an error message)
-    console.error("Registration error:", error.message);
-  }
-};
+      navigate("/");
+    } catch (error) {
+      // Handle registration failure (e.g., display an error message)
+      console.error("Registration error:", error.message);
+    }
+  };
 
   return (
     <div className="flex h-screen overflow-hidden">
