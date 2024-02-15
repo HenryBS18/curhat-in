@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
   const [showProfileBox, setShowProfileBox] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav className="border-b border-gray-300 py-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="flex justify-between items-center">
         <Link to="/">
           <img src="/logo.svg" alt="Logo" className="h-8" />
         </Link>
@@ -58,103 +58,46 @@ const Navbar = () => {
         <div className="flex space-x-8">
           {/* Menu */}
           <div className="flex space-x-8">
-            <Link
-              to="/home"
-              className={
-                location.pathname === "/home"
-                  ? "text-[#E38B29] font-bold"
-                  : "text-gray-500"
-              }
-            >
+            <Link to="/home" className={location.pathname === "/home" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
               Beranda
             </Link>
-            <Link
-              to="/Chatbot"
-              className={
-                location.pathname === "/Chatbot"
-                  ? "text-[#E38B29] font-bold"
-                  : "text-gray-500"
-              }
-            >
-              {isLoggedIn ? (
-                "Chatbot"
-              ) : (
-                <span onClick={() => (window.location.href = "/loginreminder")}>
-                  Chatbot
-                </span>
-              )}
+            <Link to="/Chatbot" className={location.pathname === "/Chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+              Chatbot
             </Link>
-            <Link
-              to="/Layanan-konsultasi"
-              className={
-                location.pathname === "/layanankonsultasi"
-                  ? "text-[#E38B29] font-bold"
-                  : "text-gray-500"
-              }
-            >
-              {isLoggedIn ? (
-                "LayananKonsultasi"
-              ) : (
-                <span onClick={() => (window.location.href = "/loginreminder")}>
-                  Layanan Konsultasi
-                </span>
-              )}
+            <Link to="/layanan-konsultasi" className={location.pathname === "/layanan-konsultasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+              Layanan Konsultasi
             </Link>
-            <Link
-              to="/education"
-              className={
-                location.pathname === "/materiedukasi"
-                  ? "text-[#E38B29] font-bold"
-                  : "text-gray-500"
-              }
-            >
-              {isLoggedIn ? (
-                "MateriEdukasi"
-              ) : (
-                <span onClick={() => (window.location.href = "/loginreminder")}>
-                  Materi Edukasi
-                </span>
-              )}
+            <Link to="/materi-edukasi" className={location.pathname === "/materi-edukasi" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+              Materi Edukasi
             </Link>
-            <Link
-              to="/Quiz"
-              className={
-                location.pathname === "/Quiz"
-                  ? "text-[#E38B29] font-bold"
-                  : "text-gray-500"
-              }
-            >
-              {isLoggedIn ? (
-                "Quiz"
-              ) : (
-                <span onClick={() => (window.location.href = "/loginreminder")}>
-                  Quiz
-                </span>
-              )}
+            <Link to="/quiz" className={location.pathname === "/quiz" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+              Quiz
             </Link>
           </div>
         </div>
 
         {isLoggedIn ? (
-          <div className="relative">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="text-[#E38B29] font-bold cursor-pointer"
-              onClick={handleProfileClick}
-            />
+          <div className="relative -left-3">
+            <div className="scale-[200%]">
+              <FontAwesomeIcon
+                icon={faUser}
+                className="text-[#E38B29] font-bold cursor-pointer"
+                onClick={handleProfileClick}
+              />
+            </div>
             {showProfileBox && (
-              <div className="absolute z-20 bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
+              <div className="absolute z-30 bg-[#E38B29] text-white p-4 rounded border border-gray-300 mt-2 left-[-180px] w-48">
                 <div className="flex items-center mb-2">
                   {profilePicture ? (
                     <img
                       src={profilePicture}
                       alt="Profile"
-                      className="h-8 w-8 rounded-full mr-2"
+                      className="h-10 w-10 rounded-full mr-2"
                     />
                   ) : (
                     <FontAwesomeIcon
                       icon={faUser}
-                      className="text-white h-8 w-8 rounded-full mr-2"
+                      className="text-white h-10 w-10 rounded-full mr-2"
                     />
                   )}
                   <div>

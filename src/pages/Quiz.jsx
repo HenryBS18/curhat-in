@@ -1,33 +1,17 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
+
+import { useQuizStore } from "../store/useQuizStore"
+import { authentication } from "../services/auth"
+
 import Navbar from "../components/Navbar"
 
 const Quiz = () => {
-  const quizzes = [
-    {
-      title: "Mindfulness & Relaxation",
-      description: "Temukan teknik relaksasi dan latihan kesadaran untuk mengelola stress sehari-hari."
-    },
-    {
-      title: "Emotional Intelligence",
-      description: "Uji tingkat kecerdasan emosional Anda dan pelajari cara mengelola emosi dengan bijak.",
-    },
-    {
-      title: "Anxiety & Stress Management",
-      description: "Uji tingkat kecerdasan emosional Anda dan pelajari cara mengelola emosi dengan bijak."
-    },
-    {
-      title: "Self-Care & Well-Being",
-      description: "Temukan cara-cara efektif untuk merawat diri sendiri dan meningkatkan kesejahteraan keseluruhan."
-    },
-    {
-      title: "Mood Disorders Awareness",
-      description: "Pahami lebih dalam tentang gangguan suasana hati seperti depresi dan bipolar, serta cara mendukung diri sendiri atau orang lain."
-    },
-    {
-      title: "Relationships & Social Connections",
-      description: "Eksplorasi bagaimana hubungan sosial dapat memengaruhi  kesehatan mental, dan pelajari cara membangun koneksi yang sehat."
-    }
-  ]
+  const { quizzes } = useQuizStore(state => state)
+
+  useEffect(() => {
+    authentication()
+  }, [])
 
   return (
     <div className='w-full min-h-screen bg-[#FFF0DE] flex flex-col items-center'>

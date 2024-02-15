@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useChatbotStore } from "../store/useChatbotStore";
+import { authentication } from "../services/auth";
+
 import Navbar from "../components/Navbar";
 import InputMessage from "../components/InputMessage";
 import ChatGuideModal from "../components/ChatGuideModal";
@@ -12,6 +14,10 @@ const Chatbot = () => {
   const [isGuideShow, setIsGuideShow] = useState(false)
   const { chats, loading } = useChatbotStore((state) => state)
   const bottom = useRef(null)
+
+  useEffect(() => {
+    authentication()
+  }, [])
 
   useEffect(() => {
     bottom.current.scrollIntoView({ behavior: 'smooth' })
@@ -31,8 +37,6 @@ const Chatbot = () => {
             Panduan Obrolan
           </button>
         </div>
-
-        {/* <div className="w-full h-[1px] bg-black mt-3 opacity-30"></div> */}
       </div>
 
       <div className="w-full h-auto mt-6">

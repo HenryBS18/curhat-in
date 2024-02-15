@@ -1,8 +1,15 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
+
 import { useQuizStore } from "../store/useQuizStore"
+import { authentication } from "../services/auth"
 
 const QuizFinished = () => {
   const { totalTrue } = useQuizStore(state => state)
+
+  useEffect(() => {
+    authentication()
+  }, [])
 
   return (
     <div className='w-full min-h-screen bg-[#FFF0DE] flex flex-col items-center'>

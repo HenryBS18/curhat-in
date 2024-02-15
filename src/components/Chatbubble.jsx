@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Chatbubble = ({ doctorName, message, doctorImage }) => {
+const ChatBubble = ({ doctorName, message, doctorImage }) => {
   return (
     <div className="flex items-start gap-2.5 w-full">
       <img
@@ -28,4 +26,4 @@ const Chatbubble = ({ doctorName, message, doctorImage }) => {
   );
 };
 
-export default Chatbubble;
+export default ChatBubble;

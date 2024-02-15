@@ -1,7 +1,14 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { authentication } from "../services/auth";
+
 import Navbar from "../components/Navbar";
-import { Link, useLocation } from "react-router-dom";
 
 const Education = () => {
+  useEffect(() => {
+    authentication()
+  }, [])
+
   const educationData = [
     {
       id: 1,
@@ -49,7 +56,7 @@ const Education = () => {
 
   return (
     <div className="bg-[#FFF0DE] w-full flex items-center flex-col">
-      <div className="w-[90%] min-h-[775px]">
+      <div className="w-[90%] min-h-screen">
         {/* Navbar */}
         <Navbar />
         {/* Konten Materi Edukasi */}
@@ -58,7 +65,7 @@ const Education = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
             {educationData.map((data) => (
               <Link
-              to={`/education/${data.id}`}
+                to={`/materi-edukasi/${data.id}`}
                 key={data.id}
                 className="bg-[#F1A661] p-4 rounded-2xl shadow-md w-[375px]"
               >
