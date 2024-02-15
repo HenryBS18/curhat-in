@@ -1,5 +1,32 @@
 import { create } from "zustand";
-import { Question, QuizStore } from "../types";
+import { Question, QuizStore, Quizzes } from "../types";
+
+const quizzes: Quizzes = [
+  {
+    title: "Mindfulness & Relaxation",
+    description: "Temukan teknik relaksasi dan latihan kesadaran untuk mengelola stress sehari-hari."
+  },
+  {
+    title: "Emotional Intelligence",
+    description: "Uji tingkat kecerdasan emosional Anda dan pelajari cara mengelola emosi dengan bijak.",
+  },
+  {
+    title: "Anxiety & Stress Management",
+    description: "Uji tingkat kecerdasan emosional Anda dan pelajari cara mengelola emosi dengan bijak."
+  },
+  {
+    title: "Self-Care & Well-Being",
+    description: "Temukan cara-cara efektif untuk merawat diri sendiri dan meningkatkan kesejahteraan keseluruhan."
+  },
+  {
+    title: "Mood Disorders Awareness",
+    description: "Pahami lebih dalam tentang gangguan suasana hati seperti depresi dan bipolar, serta cara mendukung diri sendiri atau orang lain."
+  },
+  {
+    title: "Relationships & Social Connections",
+    description: "Eksplorasi bagaimana hubungan sosial dapat memengaruhi  kesehatan mental, dan pelajari cara membangun koneksi yang sehat."
+  }
+]
 
 const questions: Question[][] = [
   [
@@ -62,7 +89,8 @@ const questions: Question[][] = [
 ]
 
 export const useQuizStore = create<QuizStore>((set) => ({
+  quizzes: quizzes,
   questions: questions,
   totalTrue: 0,
-  setTotalTrue: () => set((state) => ({ totalTrue: state.totalTrue + 1}))
+  setTotalTrue: () => set((state) => ({ totalTrue: state.totalTrue + 1 }))
 }))

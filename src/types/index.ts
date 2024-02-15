@@ -22,6 +22,13 @@ export type CreatePromptProps = {
   chats: Chat[]
 }
 
+export type Quiz = {
+  title: string
+  description: string
+}
+
+export type Quizzes = Quiz[]
+
 export type Question = {
   no: number
   question: string
@@ -35,6 +42,7 @@ export type Question = {
 }
 
 export type QuizStore = {
+  quizzes: Quizzes
   questions: Question[][]
   totalTrue: number
   setTotalTrue: () => void
