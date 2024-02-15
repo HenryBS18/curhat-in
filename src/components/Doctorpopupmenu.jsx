@@ -1,6 +1,4 @@
-// DoctorPopupMenu.jsx
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import profiledoctor1Svg from '../../public/assets/icons/doctor1.svg';
 import profiledoctor2Svg from '../../public/assets/icons/doctor2.svg';
 import profiledoctor3Svg from '../../public/assets/icons/doctor3.svg';
@@ -35,9 +33,8 @@ const DoctorPopupMenu = ({ onSelectDoctor, onClose }) => {
       {doctors.map((doctor) => (
         <div
           key={doctor.id}
-          className={`flex items-center mb-2 cursor-pointer ${
-            selectedDoctor && selectedDoctor.id === doctor.id ? 'bg-gray-200' : ''
-          }`}
+          className={`flex items-center mb-2 cursor-pointer ${selectedDoctor && selectedDoctor.id === doctor.id ? 'bg-gray-200' : ''
+            }`}
           onClick={() => handleSelectDoctor(doctor)}
         >
           <img
