@@ -16,7 +16,7 @@ import NotFound from '../pages/NotFound';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: <Home />,
   },
   {
     path: '/register',
@@ -27,8 +27,8 @@ export const router = createBrowserRouter([
     element: <LoginReminder />,
   },
   {
-    path: '/home',
-    element: <Home />,
+    path: '/login',
+    element: <Login />,
   },
   {
     path: '/materi-edukasi',
