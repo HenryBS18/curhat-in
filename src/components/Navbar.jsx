@@ -58,7 +58,7 @@ const Navbar = () => {
         <div className="flex space-x-8">
           {/* Menu */}
           <div className="flex space-x-8">
-            <Link to="/home" className={location.pathname === "/home" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
+            <Link to="/" className={location.pathname === "/" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
               Beranda
             </Link>
             <Link to="/Chatbot" className={location.pathname === "/Chatbot" ? "text-[#E38B29] font-bold" : "text-gray-500"}>
@@ -116,7 +116,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link
-            to="/"
+            to="/login"
             className="bg-[#E38B29] text-white px-4 py-2 rounded-3xl w-32 flex items-center justify-center"
           >
             Masuk

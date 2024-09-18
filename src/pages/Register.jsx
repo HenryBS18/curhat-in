@@ -116,7 +116,7 @@ const Register = () => {
 
           {/* Tombol Kembali ke Beranda */}
           <div className="mt-1">
-            <Link to="/home" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</Link>
+            <Link to="/" style={{ color: '#A1815D' }} className="font-bold text-sm">Kembali ke Beranda</Link>
           </div>
 
           {/* By Curhat-in Company */}
