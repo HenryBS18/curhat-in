@@ -17,7 +17,9 @@ const Chatbot = () => {
 
   useEffect(() => {
     authentication()
+    sessionStorage.removeItem('totalTrue')
   }, [])
+
 
   useEffect(() => {
     bottom.current.scrollIntoView({ behavior: 'smooth' })

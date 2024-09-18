@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 const Education = () => {
   useEffect(() => {
     authentication()
+    sessionStorage.removeItem('totalTrue')
   }, [])
 
   const educationData = [

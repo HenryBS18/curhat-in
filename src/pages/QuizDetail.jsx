@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { authentication } from "../services/auth";
@@ -7,14 +7,28 @@ import { useQuizStore } from '../store/useQuizStore';
 import Choice from '../components/Choice';
 
 const QuizDetail = () => {
-  const { questions } = useQuizStore(state => state)
+  const { questions, setTotalTrue } = useQuizStore(state => state)
   const { id } = useParams()
   const queryParams = new URLSearchParams(location.search)
   const questionParam = queryParams.get('q')
+  const [chosenAnswer, setChosenAnswer] = useState('')
+  const [answered, setAnswered] = useState(false)
 
   useEffect(() => {
     authentication()
   }, [])
+
+  const handleAnswer = (answer) => {
+    if (answered) {
+      return
+    }
+    setChosenAnswer(answer)
+    setAnswered(true)
+  }
+
+  const handleFinish = () => {
+    sessionStorage.removeItem('totalTrue')
+  }
 
   return (
     <div className='w-full min-h-screen bg-[#FFF0DE] flex flex-col items-center'>
@@ -44,7 +58,7 @@ const QuizDetail = () => {
                 <div className='w-[90%] flex flex-wrap justify-center gap-x-10 gap-y-8'>
                   {
                     ["a", "b", "c", "d"].map((c, i) => (
-                      <Choice key={i} choice={questions[id][Number(questionParam) - 1].choices[c]} choices={c} id={id} questionNumber={Number(questionParam)} />
+                      <Choice key={i} choice={questions[id][Number(questionParam) - 1].choices[c]} choices={c} id={id} questionNumber={Number(questionParam)} chosenAnswer={chosenAnswer} handleAnswer={handleAnswer} answered={answered} />
                     ))
                   }
                 </div>
@@ -55,7 +69,7 @@ const QuizDetail = () => {
                   questionParam !== '5' ? (
                     <a href={`/quiz/${id}?q=${Number(questionParam) + 1}`} className='w-[160px] h-[48px] bg-[#E38B29] rounded-xl text-white text-xl font-semibold flex justify-center items-center'>Selanjutnya</a>
                   ) : (
-                    <Link to={`/quiz/${id}/score`} className='w-[160px] h-[48px] bg-[#E38B29] rounded-xl text-white text-xl font-semibold flex justify-center items-center'>Selesai</Link>
+                    <Link to={`/quiz/${id}/score`} className='w-[160px] h-[48px] bg-[#E38B29] rounded-xl text-white text-xl font-semibold flex justify-center items-center' onClick={() => handleFinish}>Selesai</Link>
                   )
                 }
               </div>

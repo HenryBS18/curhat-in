@@ -1,12 +1,9 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
-import { useQuizStore } from "../store/useQuizStore"
 import { authentication } from "../services/auth"
 
 const QuizFinished = () => {
-  const { totalTrue } = useQuizStore(state => state)
-
   useEffect(() => {
     authentication()
   }, [])
@@ -37,7 +34,7 @@ const QuizFinished = () => {
 
               <p className="text-2xl mt-4">Anda Menjawab</p>
 
-              <p className="text-5xl mt-4 text-[#E38B29]">{totalTrue}/5</p>
+              <p className="text-5xl mt-4 text-[#E38B29]">{sessionStorage.getItem('totalTrue') ?? 0}/5</p>
 
               <p className="text-xl mt-4 text-[#E38B29] font-bold">Soal yang benar</p>
             </div>
@@ -46,11 +43,11 @@ const QuizFinished = () => {
           </div>
 
           <div className="flex gap-x-5">
-            <Link to={`/quiz`} className="w-[240px] h-[48px] rounded-3xl border-2 border-[#E38B29] flex justify-center items-center text-[#E38B29] font-bold text-lg hover:bg-[#E38B29] hover:text-white">
+            <Link to={`/quiz`} className="w-[240px] h-[48px] rounded-3xl border-2 border-[#E38B29] flex justify-center items-center text-[#E38B29] font-bold text-lg hover:bg-[#E38B29] hover:text-white" onClick={() => sessionStorage.removeItem('totalTrue')}>
               Ulangi Quiz
             </Link>
 
-            <Link to={'/home'} className="w-[240px] h-[48px] rounded-3xl border-2 border-[#E38B29] flex justify-center items-center text-[#E38B29] font-bold text-lg hover:bg-[#E38B29] hover:text-white">
+            <Link to={'/'} className="w-[240px] h-[48px] rounded-3xl border-2 border-[#E38B29] flex justify-center items-center text-[#E38B29] font-bold text-lg hover:bg-[#E38B29] hover:text-white">
               Kembali ke Beranda
             </Link>
           </div>

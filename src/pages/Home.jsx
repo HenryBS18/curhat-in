@@ -10,6 +10,10 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState([false, false, false, false, false]);
   const [activeQuestion, setActiveQuestion] = useState(null);
 
+  useEffect(() => {
+    sessionStorage.removeItem('totalTrue')
+  })
+
   const yourQuestionsArray = [
     {
       text: "Apa tujuan dari web Curhat-in ini?",
