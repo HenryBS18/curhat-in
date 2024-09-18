@@ -5,9 +5,6 @@ import Navbar from '../components/Navbar';
 import DoctorPopupMenu from '../components/DoctorPopupMenu';
 import ChatBubble from '../components/ChatBubble';
 
-import addButtonSvg from '../../public/assets/icons/addButton.svg';
-import searchiconSvg from '../../public/assets/icons/search-icon.svg';
-
 const Konsultasi = () => {
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
@@ -17,6 +14,7 @@ const Konsultasi = () => {
 
   useEffect(() => {
     authentication()
+    sessionStorage.removeItem('totalTrue')
   }, [])
 
   const openPopupMenu = () => {
@@ -65,7 +63,7 @@ const Konsultasi = () => {
 
           <div className="flex items-center mb-3">
             <div className="flex items-center w-full max-w-xs bg-transparent border border-[#A9A9A9] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-gray-500">
-              <img src={searchiconSvg} className="w-6 h-6 mx-2" />
+              <img src="/assets/icons/search-icon.svg" className='mx-2' />
               <input
                 type="text"
                 placeholder="Cari..."
@@ -78,7 +76,7 @@ const Konsultasi = () => {
               onClick={openPopupMenu}
               className="ml-2 px-2 py-2 text-white bg-[#E38B29] border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-blue-500 hover:bg-blue-600"
             >
-              <img src={addButtonSvg} alt="Add Button" className="w-8 h-8" />
+              <img src="/assets/icons/addbutton.svg" alt="Add Button" />
             </button>
 
             {isPopupMenuOpen && (
