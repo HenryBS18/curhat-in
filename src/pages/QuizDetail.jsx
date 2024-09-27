@@ -7,7 +7,7 @@ import { useQuizStore } from '../store/useQuizStore';
 import Choice from '../components/Choice';
 
 const QuizDetail = () => {
-  const { questions, setTotalTrue } = useQuizStore(state => state)
+  const { questions } = useQuizStore(state => state)
   const { id } = useParams()
   const queryParams = new URLSearchParams(location.search)
   const questionParam = queryParams.get('q')
