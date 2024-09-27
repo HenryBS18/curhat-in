@@ -9,7 +9,7 @@ export type ChatbotStore = {
 
 export type Chat = {
   message: string
-  from: "user" | "model"
+  from: "user" | "model" | "system"
 }
 
 export type ChatHistory = {
