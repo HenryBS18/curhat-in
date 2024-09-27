@@ -1,11 +1,10 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
-import { ChatHistory, CreatePromptProps } from "../../types"
 
-export const createPrompt = async ({ prompt, chats }: CreatePromptProps): Promise<string> => {
-  const genAI = new GoogleGenerativeAI("AIzaSyB3ND7e-1s4ueD3L0otCdQB1JHx_oXOAKw")
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+export const createPrompt = async ({ prompt, chats }) => {
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
-  const history: ChatHistory[] = []
+  const history = []
 
   for await (const chat of chats) {
     history.push({
