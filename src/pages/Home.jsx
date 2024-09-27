@@ -165,7 +165,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-[90%] mx-auto border mb-20">
+      <div className="w-[90%] mx-auto mb-20">
         {/* Section Kumpulan Materi 2 */}
         <div className="w-full flex justify-start">
           <div className="mb-16 flex gap-x-20">
@@ -193,7 +193,7 @@ const Home = () => {
 
               {/* Tombol Lihat Lebih Lanjut */}
               <div className="flex items-center">
-                <Link to={'/education'} className="text-[#E38B29] border-[#E38B29] border-2 hover:bg-[#E38B29] hover:text-white px-6 py-2 rounded-full mr-2">
+                <Link to={'/materi-edukasi'} className="text-[#E38B29] border-[#E38B29] border-2 hover:bg-[#E38B29] hover:text-white px-6 py-2 rounded-full mr-2">
                   Lihat Lebih Lanjut
                   <span className="ml-2">&#10148;</span>{" "}
                   {/* Unicode untuk ikon panah ke kanan */}

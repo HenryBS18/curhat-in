@@ -121,7 +121,7 @@ const Konsultasi = () => {
                   <input
                     type="text"
                     placeholder="Type your message..."
-                    className="flex-grow py-3 px-4 bg-[#E38B29] focus:outline-none rounded-md"
+                    className="flex-grow py-3 px-4 bg-[#E38B29] focus:outline-none rounded-md placeholder-white"
                     value={messageInput}
                     onChange={(e) => setMessageInput(e.target.value)}
                   />

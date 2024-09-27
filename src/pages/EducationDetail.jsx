@@ -113,7 +113,7 @@ const EducationDetail = () => {
 
   return (
     <div className="bg-[#FFF0DE] w-full flex items-center flex-col">
-      <div className="w-[90%] min-h-[775px]">
+      <div className="w-[90%] min-h-[775px] mb-10">
         <Navbar />
 
         <div className="mt-12">
